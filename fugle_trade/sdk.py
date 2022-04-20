@@ -58,9 +58,9 @@ class SDK:
         ft_set_password(self.__AID)
         print("reset_password done!!")
 
-    def place_order(self, order: OrderObject):
+    def place_order(self, order_object: OrderObject):
         """place order"""
-        return loads(self.__core.order(order))["data"]
+        return loads(self.__core.order(order_object))["data"]
 
     def delete_order(self, order_result):
         """delete_order"""
@@ -72,8 +72,8 @@ class SDK:
         apcode = int(order_result["ap_code"])
         unit = self.__core.get_volume_per_unit(order_result["stock_no"])
         excuted_celqty = None
-        if "celqty" in kwargs and "celqty_share" in kwargs:
-            raise TypeError("celqty or celqty_share, not both")
+        if "cel_qty" in kwargs and "cel_qty_share" in kwargs:
+            raise TypeError("cel_qty or cel_qty_share, not both")
 
         # if no args, treat it as cancel all
         if "cel_qty" not in kwargs and "cel_qty_share" not in kwargs:
@@ -98,9 +98,9 @@ class SDK:
 
         return loads(self.__core.modify_volume(order_result, excuted_celqty))["data"]
 
-    def modify_price(self, order_result, targetPrice):
+    def modify_price(self, order_result, target_price):
         """modify_price"""
-        return loads(self.__core.modify_price(order_result, targetPrice))["data"]
+        return loads(self.__core.modify_price(order_result, target_price))["data"]
 
     def get_order_results(self):
         """get order result data"""
