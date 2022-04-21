@@ -1,0 +1,1 @@
+{"$type":"WebSocketManager.Common.Message","messageType":2,"data":{"$type":"System.String","$value":"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}}

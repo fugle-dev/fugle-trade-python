@@ -1,0 +1,6 @@
+{
+  "cn": "A123456789-00-00::XXX000",
+  "isValid": true,
+  "notAfter": 9999999999,
+  "serial": "XXXXXXXX"
+}
