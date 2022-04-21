@@ -1,0 +1,51 @@
+{
+  "data": {
+    "orderResults": [
+      {
+        "market": "T",
+        "workDate": "20220314",
+        "ordDate": "20220311",
+        "ordTime": "161323716",
+        "ordStatus": "1",
+        "ordNo": "",
+        "preOrdNo": "P0D832B7",
+        "stockNo": "2884",
+        "buySell": "B",
+        "apCode": "1",
+        "priceFlag": "0",
+        "trade": "0",
+        "odPrice": "25.0",
+        "orgQty": "1",
+        "matQty": "0",
+        "celQty": "0",
+        "celable": "1",
+        "errCode": "00000000",
+        "errMsg": "",
+        "avgPrice": "0",
+        "bsFlag": "R"
+      },
+      {
+        "workDate": "20220222",
+        "ordDate": "20220222",
+        "ordTime": "130000000",
+        "ordStatus": "2",
+        "ordNo": "B9999",
+        "preOrdNo": "",
+        "stockNo": "0050",
+        "buySell": "B",
+        "apCode": "5",
+        "priceFlag": "0",
+        "trade": "0",
+        "odPrice": "140.0",
+        "orgQty": "1000",
+        "matQty": "0",
+        "celQty": "0",
+        "celable": "2",
+        "errCode": "00000000",
+        "errMsg": "",
+        "avgPrice": "0.0",
+        "bsFlag": "R"
+      }
+    ]
+  }
+}

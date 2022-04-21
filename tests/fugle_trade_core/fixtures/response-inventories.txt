@@ -1,0 +1,79 @@
+{
+  "data": {
+    "stkSums": [
+      {
+        "stkDats": [
+          {
+            "tDate": "20200417",
+            "ttime": "",
+            "trade": "0",
+            "bs": "B",
+            "ordno": "00000000000010",
+            "price": "25.54",
+            "price603": "Y",
+            "qty": "94",
+            "qtyr": "0",
+            "qtyh": "0",
+            "qtyc": "0",
+            "fee": "0",
+            "tax": "0",
+            "taxg": "0",
+            "payn": "-2400",
+            "costr": "0",
+            "valueMkt": "3148",
+            "valueNow": "3148",
+            "makeA": "725",
+            "makeAPer": "30.21",
+            "priceEvn": "25.78"
+          },
+          {
+            "tDate": "20200807",
+            "ttime": "",
+            "trade": "0",
+            "bs": "B",
+            "ordno": "00000000000010",
+            "price": "27.49",
+            "price603": "Y",
+            "qty": "131",
+            "qtyr": "0",
+            "qtyh": "0",
+            "qtyc": "0",
+            "fee": "0",
+            "tax": "0",
+            "taxg": "0",
+            "payn": "-3601",
+            "costr": "0",
+            "valueMkt": "4387",
+            "valueNow": "4387",
+            "makeA": "762",
+            "makeAPer": "21.16",
+            "priceEvn": "27.67"
+          }
+        ],
+        "stkNo": "0056",
+        "stkNa": "元大高股息",
+        "apcode": "",
+        "trade": "0",
+        "stype": "H",
+        "qtyL": "914",
+        "qtyB": "0",
+        "qtyS": "0",
+        "qtyC": "0",
+        "qtyBm": "0",
+        "qtySm": "0",
+        "costQty": "914",
+        "costSum": "-27601",
+        "priceQtySum": "27603",
+        "priceAvg": "30.20",
+        "valueMkt": "30609",
+        "valueNow": "30609",
+        "recVaSum": "30480",
+        "makeASum": "2879",
+        "makeAPer": "10.43",
+        "priceEvn": "30.28",
+        "priceMkt": "33.49",
+        "priceNow": "33.49"
+      }
+    ]
+  }
+}
