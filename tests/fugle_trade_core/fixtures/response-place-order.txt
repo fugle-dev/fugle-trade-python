@@ -1,0 +1,11 @@
+{
+  "data": {
+    "retMsg": "",
+    "workDate": "20220223",
+    "retCode": "000000",
+    "ordNo": "A7321",
+    "ordType": "2",
+    "ordDate": "20220223",
+    "ordTime": "120028643"
+  }
+}

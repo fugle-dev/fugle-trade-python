@@ -1,0 +1,45 @@
+{
+  "data": {
+    "matSums": [
+      {
+        "matDats": [
+          {
+            "tDate": "20220222",
+            "stkNo": "2884",
+            "stkNa": "玉山金",
+            "branchNo": "8840",
+            "trade": "0",
+            "sType": "H",
+            "buySell": "B",
+            "orderNo": "B9999999999999",
+            "price": "30.00",
+            "qty": "1000",
+            "priceQty": "30000",
+            "fee": "42",
+            "tax": "0",
+            "taxg": "0",
+            "dbFee": "0",
+            "payn": "-30042",
+            "make": "0",
+            "makePer": "0.00",
+            "cDate": "20220222"
+          }
+        ],
+        "tDate": "20220222",
+        "stkNo": "2884",
+        "stkNa": "玉山金",
+        "trade": "0",
+        "stype": "H",
+        "buySell": "B",
+        "qty": "1000",
+        "priceQty": "30000",
+        "priceAvg": "30.00",
+        "cost": "0",
+        "recv": "0",
+        "make": "0",
+        "makePer": "0.00",
+        "cDate": "20220222"
+      }
+    ]
+  }
+}
