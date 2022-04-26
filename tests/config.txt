@@ -1,0 +1,12 @@
+[Core]
+Entry = empty
+
+[Cert]
+Path = empty.p12
+
+[Api]
+Key = empty
+Secret = empty
+
+[User]
+Account = 884M1234567
