@@ -34,11 +34,13 @@ def convert_to_snakecase(original_dict):
 
 
 def load_json(filename):
+    return json.dumps(load_json_dic(filename))
+
+def load_json_dic(filename):
     json_url = os.path.join(JSON_ROOT, filename)
     raw_content = json.load(open(json_url))
     content = convert_to_snakecase(raw_content)
-    return json.dumps(content)
-
+    return content
 
 class CoreSDK():
     def __init__(self, entry, account, cert_path, cert_pass, api_key, api_secret):
@@ -86,3 +88,17 @@ class CoreSDK():
         if not self.isLogin:
             raise TypeError("Must login first")
         return 1000
+
+    def get_volume_per_unit(self, stock_no):
+        if not self.isLogin:
+            raise TypeError("Must login first")
+        return 1000
+
+    def modify_volume(self, order_result, cel_qty):
+        if not self.isLogin:
+            raise TypeError("Must login first")
+        result = load_json_dic("response-modify.txt")
+        result['data']['_input'] = {}
+        result['data']['_input']['order_result'] = order_result
+        result['data']['_input']['cel_qty'] = cel_qty
+        return json.dumps(result)

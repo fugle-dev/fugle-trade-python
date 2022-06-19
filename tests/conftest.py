@@ -1,5 +1,7 @@
 import pytest
 from configparser import ConfigParser
+import sys, os
+sys.path.insert(0, os.path.realpath(os.path.dirname(__file__)+"/../"))
 from fugle_trade.sdk import SDK
 
 @pytest.fixture(scope='session')
