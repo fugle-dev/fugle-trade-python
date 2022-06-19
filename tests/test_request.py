@@ -78,3 +78,20 @@ def test_get_transactions(sdk):
     assert result[0]['stk_no'] == "2884"
     assert result[0]['buy_sell'] == "B"
     assert result[0]['qty'] == "1000"
+
+
+def test_cancel_order_intraday_odd(sdk):
+    '''test org_qty can be recovered to original state'''
+    order_results = sdk.get_order_results()
+    result = sdk.cancel_order(order_results[1])
+    assert order_results[1]['org_qty'] == 0.999
+    assert result['_input']['order_result']['org_qty'] == 999
+    assert result['_input']['cel_qty'] == 0
+
+def test_cancel_order_Common(sdk):
+    '''test org_qty can be recovered to original state'''
+    order_results = sdk.get_order_results()
+    result = sdk.cancel_order(order_results[0])
+    assert order_results[0]['org_qty'] == 1
+    assert result['_input']['order_result']['org_qty'] == 1
+    assert result['_input']['cel_qty'] == 0
