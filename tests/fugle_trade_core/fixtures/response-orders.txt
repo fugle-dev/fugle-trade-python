@@ -37,7 +37,7 @@
         "priceFlag": "0",
         "trade": "0",
         "odPrice": "140.0",
-        "orgQty": "1000",
+        "orgQty": "999",
         "matQty": "0",
         "celQty": "0",
         "celable": "2",
