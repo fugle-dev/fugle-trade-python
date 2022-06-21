@@ -1,9 +1,17 @@
 # Changelog
 
-## 0.2.5 (2022-05-17)
+## [0.2.6](https://github.com/fugle-dev/fugle-trade-python/compare/0.2.5...0.2.6) - 21 June 2022
 
-  1. upgrade fugle-trade-core (修改 error message)
+### Fixed
 
-## 0.2.4 (2022-04-20)
+- fix: odd order cancel_order error [MR 4](https://github.com/fugle-dev/fugle-trade-python/pull/4)
+- chore: use docstring for enum names [MR 3](https://github.com/fugle-dev/fugle-trade-python/pull/3)
 
-Public release
+## [0.2.5](https://github.com/fugle-dev/fugle-trade-python/compare/0.2.4...0.2.5) -  17 May 2022 
+
+### Added
+
+- feat: mock fugle_trade_core and test sdk [MR 1](https://github.com/fugle-dev/fugle-trade-python/pull/1)
+
+## 0.2.4 
+  Public release

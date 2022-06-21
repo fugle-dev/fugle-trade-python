@@ -10,7 +10,13 @@ poetry install
 ## Test
 
 ```sh
-poetry run pytest(目前暫無)
+poetry run pytest
+```
+
+or 
+
+```sh
+pytest
 ```
 
 ## Quick Test For Development
