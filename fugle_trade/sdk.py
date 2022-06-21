@@ -3,6 +3,7 @@ Expose as a single library for user to use
 
 """
 from fugle_trade_core.fugle_trade_core import CoreSDK
+from fugle_trade.constant import APCode
 from fugle_trade.order import OrderObject
 from fugle_trade.websocket import WebsocketHandler
 from fugle_trade.util import ft_check_password, ft_get_password, ft_set_password
@@ -67,11 +68,13 @@ class SDK:
         print("*** important: this function will be deprecated in next version, please use cancel_order instead ***")
         return loads(self.__core.modify_volume(order_result, 0))["data"]
 
-    def cancel_order(self, order_result, **kwargs):
+    def cancel_order(self, in_order_result, **kwargs):
         """cancel_order"""
-        apcode = int(order_result["ap_code"])
+        order_result = self.recover_order_result(in_order_result)
+        apcode = str(order_result["ap_code"])
         unit = self.__core.get_volume_per_unit(order_result["stock_no"])
         excuted_celqty = None
+
         if "cel_qty" in kwargs and "cel_qty_share" in kwargs:
             raise TypeError("cel_qty or cel_qty_share, not both")
 
@@ -80,13 +83,13 @@ class SDK:
             return loads(self.__core.modify_volume(order_result, 0))["data"]
 
         if "cel_qty" in kwargs:
-            if apcode in (3, 4, 5):
+            if apcode in (APCode.Odd, APCode.Emg, APCode.IntradayOdd):
                 excuted_celqty = kwargs["cel_qty"] * unit
             else:
                 excuted_celqty = kwargs["cel_qty"]
 
         if "cel_qty_share" in kwargs:
-            if apcode in (3, 4, 5):
+            if apcode in (APCode.Odd, APCode.Emg, APCode.IntradayOdd):
                 excuted_celqty = kwargs["cel_qty_share"]
             else:
                 if kwargs["cel_qty_share"] % unit != 0:
@@ -98,8 +101,9 @@ class SDK:
 
         return loads(self.__core.modify_volume(order_result, excuted_celqty))["data"]
 
-    def modify_price(self, order_result, target_price):
+    def modify_price(self, in_order_result, target_price):
         """modify_price"""
+        order_result = self.recover_order_result(in_order_result)
         return loads(self.__core.modify_price(order_result, target_price))["data"]
 
     def get_order_results(self):
@@ -159,12 +163,24 @@ class SDK:
         order_result["avg_price"] = float(order_result["avg_price"])
         for key, value in order_result.items():
             if key.endswith("qty"):
-                if apcode in ("4", "5"):
+                if apcode in (APCode.Odd, APCode.Emg, APCode.IntradayOdd):
                     new_dict[key+"_share"] = int(value)
                     order_result[key] = float(value)/unit
                 else:
                     order_result[key] = int(value)
                     new_dict[key+"_share"] = int(value) * unit
+        return {**order_result, **new_dict}
+
+    def recover_order_result(self, order_result):
+        """recover true ord_qty value before send to api"""
+        apcode = order_result["ap_code"]
+        stockno = order_result["stock_no"]
+        unit = self.__core.get_volume_per_unit(stockno)
+        new_dict = {}
+        for key, value in order_result.items():
+            if key.endswith("qty"):
+                if apcode in (APCode.Odd, APCode.Emg, APCode.IntradayOdd):
+                    new_dict[key] = int(float(value)*unit)
         return {**order_result, **new_dict}
 
     def process_order_results(self, order_results):
