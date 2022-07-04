@@ -6,7 +6,7 @@ from fugle_trade_core.fugle_trade_core import CoreSDK
 from fugle_trade.constant import APCode
 from fugle_trade.order import OrderObject
 from fugle_trade.websocket import WebsocketHandler
-from fugle_trade.util import ft_check_password, ft_get_password, ft_set_password
+from fugle_trade.util import ft_check_password, ft_get_password, ft_set_password, setup_keyring
 from json import loads
 
 
@@ -23,6 +23,7 @@ class SDK:
         if not self.__AID:
             raise TypeError("please setup your config before using this SDK")
 
+        setup_keyring(self.__AID)
         ft_check_password(self.__AID)
 
         self.__core = CoreSDK(
