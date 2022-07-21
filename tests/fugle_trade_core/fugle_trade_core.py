@@ -4,6 +4,11 @@ import json
 
 JSON_ROOT = os.path.realpath(os.path.dirname(__file__)) + '/fixtures'
 
+def convert_ws_object(in_message):
+    message = json.loads(in_message)
+    data = json.loads(message['data']['$value'])
+    return convert_to_snakecase(data)
+
 def convert_to_snakecase(original_dict):
     transformed_dict = {}
     array_items = []
