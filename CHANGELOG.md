@@ -1,6 +1,13 @@
 # Changelog
 
 
+## [0.3.0](https://github.com/fugle-dev/fugle-trade-python/compare/0.2.7...0.3.0) - 
+
+### Added
+
+- add convert_ws_object from core and apply [MR_8](https://github.com/fugle-dev/fugle-trade-python/pull/8)
+
+
 ## [0.2.7](https://github.com/fugle-dev/fugle-trade-python/compare/0.2.6...0.2.7) - 
 
 ### Added
