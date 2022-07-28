@@ -1,30 +1,5 @@
 # Fugle Trade Python SDK
 
-## Installation
-
-```sh
-pip install poetry
-poetry install
-```
-
-## Test
-
-```sh
-poetry run pytest
-```
-
-or 
-
-```sh
-pytest
-```
-
-## Quick Test For Development
-
-```sh
-python -m examples.index
-```
-
 ## 事前準備
 
 可以參考 https://developer.fugle.tw/docs/trading/prerequisites 完成申請金鑰相關步驟
