@@ -3,35 +3,8 @@ handle websocket connection and callback registration
 """
 
 import json
-import re
 from websocket import WebSocketApp
-
-def convert_to_snakecase(original_dict):
-    transformed_dict = {}
-    array_items = []
-    if not isinstance(original_dict, list):
-        for k in original_dict.keys():
-            value = re.sub(r'(?<!^)(?=[A-Z])', '_', k).lower()
-            if not isinstance(original_dict[k], list):
-                if isinstance(original_dict[k], dict):
-                    transformed_dict[value] = convert_to_snakecase(original_dict[k])
-                else:
-                    transformed_dict[value] = original_dict[k]
-            else:
-
-                array_items = []
-                for i in range(len(original_dict[k])):
-                    if isinstance(original_dict[k][i], dict):
-                        array_items.append(convert_to_snakecase(original_dict[k][i]))
-                        transformed_dict[value] = array_items
-                    else:
-                        transformed_dict[value] = original_dict[k]
-    else:
-        array_items = []
-        for item in original_dict:
-            array_items.append(convert_to_snakecase(item))
-        transformed_dict.update(array_items)
-    return transformed_dict
+from fugle_trade_core.fugle_trade_core import convert_ws_object
 
 class WebsocketHandler():
     """Handle Websocket connection"""
@@ -44,17 +17,15 @@ class WebsocketHandler():
         self.on_close = default_fun
 
     def ws_on_message(self, _, in_message):
-        """callback function for websocket message, pipe to order or dealt based on message type"""
-        message = json.loads(in_message)
-        # if message['data']['$type'] == "System.String" :
-        #     return
+        """callback function for websocket message, pipe to order or dealt
+        based on message type"""
         try:
-            data = json.loads(message['data']['$value'])
-            if data['Kind'] == "ACK":
-                self.on_order(convert_to_snakecase(data))
+            data = json.loads(convert_ws_object(in_message))
+            if data['kind'] == "ACK":
+                self.on_order(data)
 
-            if data['Kind'] == "MAT":
-                self.on_dealt(convert_to_snakecase(data))
+            if data['kind'] == "MAT":
+                self.on_dealt(data)
         except:
             pass
 
