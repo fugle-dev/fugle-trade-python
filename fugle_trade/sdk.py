@@ -3,7 +3,7 @@ Expose as a single library for user to use
 
 """
 from fugle_trade_core.fugle_trade_core import CoreSDK
-from fugle_trade.constant import APCode
+from fugle_trade.constant import APCode, PriceFlag
 from fugle_trade.order import OrderObject
 from fugle_trade.websocket import WebsocketHandler
 from fugle_trade.util import ft_check_password, ft_get_password, ft_set_password, setup_keyring
@@ -22,7 +22,6 @@ class SDK:
 
         if not self.__AID:
             raise TypeError("please setup your config before using this SDK")
-
         setup_keyring(self.__AID)
         ft_check_password(self.__AID)
 
@@ -102,10 +101,19 @@ class SDK:
 
         return loads(self.__core.modify_volume(order_result, excuted_celqty))["data"]
 
-    def modify_price(self, in_order_result, target_price):
+    def modify_price(self, in_order_result, target_price = None, price_flag = PriceFlag.Limit):
         """modify_price"""
+        if target_price == None and price_flag == None:
+            raise TypeError("must provide valid arguments")
+
+        if price_flag != None:
+            if type(price_flag) is not PriceFlag:
+                raise TypeError("Please use fugleTrade.constant PriceFlag")
+            price_flag = price_flag.value
+
         order_result = self.recover_order_result(in_order_result)
-        return loads(self.__core.modify_price(order_result, target_price))["data"]
+        return loads(self.__core.modify_price(order_result, target_price, price_flag))["data"]
+        
 
     def get_order_results(self):
         """get order result data"""
@@ -121,6 +129,21 @@ class SDK:
         """get inventories data 庫存資訊"""
         inventories_res = self.__core.get_inventories()
         return loads(inventories_res)["data"]['stk_sums']
+
+    def get_balance(self):
+        """get balance data 餘額資訊"""
+        inventories_res = self.__core.get_balance()
+        return loads(inventories_res)["data"]
+
+    def get_trade_status(self):
+        """get trade status 交易狀態資訊"""
+        inventories_res = self.__core.get_trade_status()
+        return loads(inventories_res)["data"]
+
+    def get_market_status(self):
+        """get market status 市場開盤狀態資訊"""
+        inventories_res = self.__core.get_market_status()
+        return loads(inventories_res)["data"]
 
     def get_settlements(self):
         """get settlement data 交割資訊"""
