@@ -1,0 +1,10 @@
+{
+  "data": {
+    "dayTradeCode": "X",
+    "marginCode": "0",
+    "shortCode": "0",
+    "tradeLimit": 0,
+    "marginLimit": 500000,
+    "shortLimit": 500000
+  }
+}
