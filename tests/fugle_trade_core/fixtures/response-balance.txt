@@ -1,0 +1,9 @@
+{
+  "data": {
+    "availableBalance": 500000,
+    "exchangeBalance": 100000,
+    "stockPreSaveAmount": 100000,
+    "isLatestData": false,
+    "updatedAt": 1666158672
+  }
+}

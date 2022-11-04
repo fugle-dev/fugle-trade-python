@@ -1,0 +1,7 @@
+{
+  "data": {
+    "isTradingDay": true,
+    "lastTradingDay": "20201006",
+    "nextTradingDay": "20201228"
+  }
+}

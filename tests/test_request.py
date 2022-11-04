@@ -95,3 +95,32 @@ def test_cancel_order_Common(sdk):
     assert order_results[0]['org_qty'] == 1
     assert result['_input']['order_result']['org_qty'] == 1
     assert result['_input']['cel_qty'] == 0
+
+def test_balance(sdk):
+    '''test get balance'''
+    result = sdk.get_balance()
+    print(result)
+    assert result['available_balance'] == 500000
+    assert result['exchange_balance'] == 100000
+    assert result['stock_pre_save_amount'] == 100000
+    assert result['is_latest_data'] == False
+    assert result['updated_at'] == 1666158672
+
+def test_get_market_status(sdk):
+    '''test get market status'''
+    result = sdk.get_market_status()
+    print(result)
+    assert result['is_trading_day'] == True
+    assert result['last_trading_day'] == "20201006"
+    assert result['next_trading_day'] == "20201228"
+
+def test_get_trade_status(sdk):
+    '''test get trade status'''
+    result = sdk.get_trade_status()
+    print(result)
+    assert result['day_trade_code'] == "X"
+    assert result['margin_code'] == "0"
+    assert result['short_code'] == "0"
+    assert result['trade_limit'] == 0
+    assert result['margin_limit'] == 500000
+    assert result['short_limit'] == 500000
