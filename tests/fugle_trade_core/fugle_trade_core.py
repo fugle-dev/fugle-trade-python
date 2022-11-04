@@ -99,6 +99,21 @@ class CoreSDK():
             raise TypeError("Must login first")
         return 1000
 
+    def get_balance(self):
+        if not self.isLogin:
+            raise TypeError("Must login first")
+        return load_json("response-balance.txt")
+
+    def get_trade_status(self):
+        if not self.isLogin:
+            raise TypeError("Must login first")
+        return load_json("response-trade-status.txt")
+
+    def get_market_status(self):
+        if not self.isLogin:
+            raise TypeError("Must login first")
+        return load_json("response-market-status.txt")
+
     def modify_volume(self, order_result, cel_qty):
         if not self.isLogin:
             raise TypeError("Must login first")
