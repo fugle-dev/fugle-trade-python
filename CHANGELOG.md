@@ -1,5 +1,16 @@
 # Changelog
 
+
+## [0.4.0](https://github.com/fugle-dev/fugle-trade-python/compare/0.3.1...0.4.0) - 
+ - 許多修改 [MR_8](https://github.com/fugle-dev/fugle-trade-python/pull/8)
+  - 改價可以同時改價格旗標
+  - 增加查詢銀行餘額
+  - 增加查詢交易狀態
+  - 增加查詢市場是否開盤
+  - const: Trade, 移除自動當沖
+  - 改善找不到憑證檔案的錯誤訊息 
+
+
 ## [0.3.1](https://github.com/fugle-dev/fugle-trade-python/compare/0.3.0...0.3.1) - 
 
 ### Fixed
