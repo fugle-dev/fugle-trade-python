@@ -127,7 +127,7 @@ reference = "pypi_"
 
 [[package]]
 name = "fugle-trade-core"
-version = "0.4.1"
+version = "0.5.0"
 description = ""
 category = "main"
 optional = false
