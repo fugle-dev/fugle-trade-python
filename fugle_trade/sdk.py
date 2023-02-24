@@ -125,6 +125,11 @@ class SDK:
         transactions_res = self.__core.get_transactions(query_range)
         return loads(transactions_res)["data"]['mat_sums']
 
+    def get_transactions_by_date(self, start, end):
+        """用日期當作篩選條件 get transactions data by date 成交明細 """
+        transactions_res = self.__core.get_transactions_by_date(start, end)
+        return loads(transactions_res)["data"]['mat_sums']
+
     def get_inventories(self):
         """get inventories data 庫存資訊"""
         inventories_res = self.__core.get_inventories()
