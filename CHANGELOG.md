@@ -1,8 +1,13 @@
 # Changelog
 
 
+## [0.5.0](https://github.com/fugle-dev/fugle-trade-python/compare/0.4.0...0.5.0) - 
+### Added
+  - fugle-trade-core 升級到 0.5.0
+  - 增加可以用日期查詢成交回報的 function get_transactions_by_date
+  
 ## [0.4.0](https://github.com/fugle-dev/fugle-trade-python/compare/0.3.1...0.4.0) - 
- - 許多修改 [MR_8](https://github.com/fugle-dev/fugle-trade-python/pull/8)
+  - 許多修改 [MR_8](https://github.com/fugle-dev/fugle-trade-python/pull/8)
   - 改價可以同時改價格旗標
   - 增加查詢銀行餘額
   - 增加查詢交易狀態

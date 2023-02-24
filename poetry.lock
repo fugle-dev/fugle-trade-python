@@ -127,7 +127,7 @@ reference = "pypi_"
 
 [[package]]
 name = "fugle-trade-core"
-version = "0.4.1"
+version = "0.5.0"
 description = ""
 category = "main"
 optional = false
@@ -442,7 +442,7 @@ reference = "pypi_"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.7"
-content-hash = "815e529b98c048ce9ea8596b90e8e31dd8e9504258d67884a237afcb0de80d4b"
+content-hash = "91abeca52491dfff629dec0be93fc0326fb5bf27b1ea1d787bdf45bef26422ea"
 
 [metadata.files]
 argon2-cffi = [
@@ -559,10 +559,10 @@ cryptography = [
     {file = "cryptography-36.0.2.tar.gz", hash = "sha256:70f8f4f7bb2ac9f340655cbac89d68c527af5bb4387522a8413e841e3e6628c9"},
 ]
 fugle-trade-core = [
-    {file = "fugle_trade_core-0.4.1-cp37-abi3-macosx_10_7_x86_64.whl", hash = "sha256:8171ed106bfb8897bf6876abfa7905e7a47adae57e53350e8fb22f6af9858747"},
-    {file = "fugle_trade_core-0.4.1-cp37-abi3-macosx_11_0_arm64.whl", hash = "sha256:b859e6b16d324a8d8e1ae0ac45d92c8699b5dae0867306c4ae933f40fa27b3a7"},
-    {file = "fugle_trade_core-0.4.1-cp37-abi3-manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:e116c6557b3a81040ef39a84eb9aa63f71ca228f5fd11a6a0a6f973bfdc464c7"},
-    {file = "fugle_trade_core-0.4.1-cp37-abi3-win_amd64.whl", hash = "sha256:e9635ac8849227ccfc93e1701582446a7c0e3fffb08ac11cb03ed9260736396d"},
+    {file = "fugle_trade_core-0.5.0-cp37-abi3-macosx_10_7_x86_64.whl", hash = "sha256:1552c87cd5038fba2dbad394369ab76ed67e4b5dad0110ac0d31e70fb248acd5"},
+    {file = "fugle_trade_core-0.5.0-cp37-abi3-macosx_11_0_arm64.whl", hash = "sha256:d8527048b4f0d5569d0eee46ca23decf3cbe8091f6a2a064969849ba4598543e"},
+    {file = "fugle_trade_core-0.5.0-cp37-abi3-manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:09cb2df008abc76c30c854dd553aeb42883b417a68d67db581e9cc05828a0e0c"},
+    {file = "fugle_trade_core-0.5.0-cp37-abi3-win_amd64.whl", hash = "sha256:217c7cd8c5541b633ec01dfcbb57f0fbbde2c6a79aa7c24f8ab8c57ca3875411"},
 ]
 importlib-metadata = [
     {file = "importlib_metadata-4.11.3-py3-none-any.whl", hash = "sha256:1208431ca90a8cca1a6b8af391bb53c1a2db74e5d1cef6ddced95d4b2062edc6"},
