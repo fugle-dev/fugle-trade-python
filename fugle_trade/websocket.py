@@ -6,11 +6,12 @@ import json
 from websocket import WebSocketApp
 from fugle_trade_core.fugle_trade_core import convert_ws_object
 
+
 class WebsocketHandler():
     """Handle Websocket connection"""
     def __init__(self):
         self.__ws = None
-        default_fun = lambda x: print("in default function")
+        default_fun = lambda x, *y: print("in default function")
         self.on_order = default_fun
         self.on_dealt = default_fun
         self.on_error = default_fun
@@ -33,9 +34,9 @@ class WebsocketHandler():
         """callback function for websocket error"""
         self.on_error(error)
 
-    def ws_on_close(self, _, error):
+    def ws_on_close(self, ws, close_status_code, close_msg):
         """callback function for websocket close"""
-        self.on_close(error)
+        self.on_close(ws, close_status_code, close_msg)
 
     def set_callback(self, name, func):
         """for upper scope to set different types of callback function"""
@@ -45,10 +46,10 @@ class WebsocketHandler():
         else:
             raise Exception("callback " + name + " not allowed")
 
-    def connect_websocket(self, urlEntry):
+    def connect_websocket(self, url_entry):
         """start to connect websocket"""
         self.__ws = WebSocketApp(
-            urlEntry,
+            url_entry,
             on_message=self.ws_on_message,
             on_error=self.ws_on_error,
             on_close=self.ws_on_close
