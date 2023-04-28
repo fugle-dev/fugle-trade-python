@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "fugle-trade"
-version = "0.5.0"
+version = "0.5.1"
 description = ""
 authors = ["Fortuna Intelligence Co., Ltd. <development@fugle.tw>"]
 license = "MIT"
