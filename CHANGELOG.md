@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.5.1](https://github.com/fugle-dev/fugle-trade-python/compare/0.5.0...0.5.1) - 
+### Fixed
+  - 修正 on_close callback 的參數錯誤
+
 
 ## [0.5.0](https://github.com/fugle-dev/fugle-trade-python/compare/0.4.0...0.5.0) - 
 ### Added
