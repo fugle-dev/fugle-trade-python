@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.5.2](https://github.com/fugle-dev/fugle-trade-python/compare/0.5.1...0.5.2) - 
+### Fixed
+  - fugle-trade-core 升級到 0.5.1, 修正 multi-thread 下單時候卡頓
+  - 修改 websocket-client 版本需求限制 
+
 ## [0.5.1](https://github.com/fugle-dev/fugle-trade-python/compare/0.5.0...0.5.1) - 
 ### Fixed
   - 修正 on_close callback 的參數錯誤
