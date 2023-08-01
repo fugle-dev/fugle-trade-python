@@ -1,5 +1,11 @@
 # Changelog
 
+
+## [1.0.0](https://github.com/fugle-dev/fugle-trade-python/compare/0.5.2...1.0.0) - 
+
+### Breaking
+  - fugle-trade-core 升級到 1.0.0, 修改委託回報 order_no, pre_order_no 行為
+
 ## [0.5.2](https://github.com/fugle-dev/fugle-trade-python/compare/0.5.1...0.5.2) - 
 ### Fixed
   - fugle-trade-core 升級到 0.5.1, 修正 multi-thread 下單時候卡頓
