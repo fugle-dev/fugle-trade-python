@@ -4,3 +4,4 @@ fugleTrade/py.*
 fugleTrade/__pycache__/
 *.pyc
 dist/
+.DS_Store
