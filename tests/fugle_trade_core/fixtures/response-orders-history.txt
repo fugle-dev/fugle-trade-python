@@ -2,13 +2,12 @@
     "data": {
         "order_results": [
             {
-                "work_date": "20220314",
+                "ack_date": "20220314",
                 "ord_date": "20220311",
                 "ord_time": "161323716",
-                "ord_status": "1",
                 "ord_no": "",
-                "pre_ord_no": "P0D832B7",
                 "stock_no": "2884",
+                "market": "H",
                 "buy_sell": "B",
                 "ap_code": "1",
                 "price_flag": "0",
@@ -21,19 +20,16 @@
                 "mat_qty_share": 0,
                 "cel_qty_share": 0,
                 "celable": 1,
-                "err_code": "00000000",
-                "err_msg": "",
                 "avg_price": 0,
                 "bs_flag": "R"
             },
             {
-                "work_date": "20220222",
+                "ack_date": "20220314",
                 "ord_date": "20220222",
                 "ord_time": "130000000",
-                "ord_status": "2",
                 "ord_no": "B9999",
-                "pre_ord_no": "",
                 "stock_no": "0050",
+                "market": "H",
                 "buy_sell": "B",
                 "ap_code": "5",
                 "price_flag": "0",
@@ -46,8 +42,6 @@
                 "mat_qty_share": 0,
                 "cel_qty_share": 0,
                 "celable": "2",
-                "err_code": "00000000",
-                "err_msg": "",
                 "avg_price": 0,
                 "bs_flag": "R"
             }
