@@ -44,7 +44,7 @@ def load_json(filename):
 
 def load_json_dic(filename):
     json_url = os.path.join(JSON_ROOT, filename)
-    raw_content = json.load(open(json_url))
+    raw_content = json.load(open(json_url, "r", encoding="UTF8"))
     content = convert_to_snakecase(raw_content)
     return content
 
@@ -89,7 +89,9 @@ class CoreSDK:
     def get_transactions(self, period):
         if not self.isLogin:
             raise TypeError("Must login first")
-        return load_json("response-transactions.txt")
+        return load_json(
+            "response-transactions.txt",
+        )
 
     def login(self, account, password):
         self.isLogin = True
