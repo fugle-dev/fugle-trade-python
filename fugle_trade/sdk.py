@@ -16,7 +16,6 @@ from json import loads
 
 
 class SDK:
-
     """Main sdk for fugleTrade"""
 
     def __init__(self, config):
@@ -138,13 +137,11 @@ class SDK:
     def get_order_results(self):
         """get order result data 取得當日委託明細"""
         order_res = self.__core.get_order_results()
-        print("data from sdk" + order_res)
         return loads(order_res)["data"]["order_results"]
 
     def get_order_result_by_date(self, start, end):
         """get order result data by date 用日期當作篩選條件委託明細"""
         order_res_history = self.__core.get_order_result_history("0", start, end)
-        print("data from sdk" + order_res_history)
         return loads(order_res_history)["data"]["order_result_history"]
 
     def get_transactions(self, query_range):
@@ -211,23 +208,6 @@ class SDK:
     def connect_websocket(self):
         self.__wsHandler.connect_websocket(self.__core.get_ws_url())
 
-    def process_order_result(self, order_result):
-        apcode = order_result["ap_code"]
-        stockno = order_result["stock_no"]
-        unit = self.__core.get_volume_per_unit(stockno)
-        new_dict = {}
-        order_result["od_price"] = float(order_result["od_price"])
-        order_result["avg_price"] = float(order_result["avg_price"])
-        for key, value in order_result.items():
-            if key.endswith("qty"):
-                if apcode in (APCode.Odd, APCode.Emg, APCode.IntradayOdd):
-                    new_dict[key + "_share"] = int(value)
-                    order_result[key] = float(value) / unit
-                else:
-                    order_result[key] = int(value)
-                    new_dict[key + "_share"] = int(value) * unit
-        return {**order_result, **new_dict}
-
     def recover_order_result(self, order_result):
         """recover true ord_qty value before send to api"""
         apcode = order_result["ap_code"]
@@ -239,9 +219,3 @@ class SDK:
                 if apcode in (APCode.Odd, APCode.Emg, APCode.IntradayOdd):
                     new_dict[key] = int(float(value) * unit)
         return {**order_result, **new_dict}
-
-    def process_order_results(self, order_results):
-        order_results["data"]["order_results"] = list(
-            map(self.process_order_result, order_results["data"]["order_results"])
-        )
-        return order_results["data"]["order_results"]

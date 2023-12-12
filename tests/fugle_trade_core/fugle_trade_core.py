@@ -71,7 +71,7 @@ class CoreSDK:
             raise TypeError("Must login first")
         return load_json("response-orders.txt")
 
-    def get_order_result_by_date(self):
+    def get_order_result_history(self, market, start, end):
         if not self.isLogin:
             raise TypeError("Must login first")
         return load_json("response-orders-history.txt")
@@ -96,11 +96,6 @@ class CoreSDK:
     def login(self, account, password):
         self.isLogin = True
         return load_json("response-login.txt")
-
-    def get_volume_per_unit(self, stock_no):
-        if not self.isLogin:
-            raise TypeError("Must login first")
-        return 1000
 
     def get_volume_per_unit(self, stock_no):
         if not self.isLogin:
