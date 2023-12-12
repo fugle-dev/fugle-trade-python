@@ -6,7 +6,7 @@ from fugle_trade.order import OrderObject
 from fugle_trade.constant import APCode, Trade, PriceFlag, BSFlag, Action
 
 config = ConfigParser()
-config.read("./examples/config.sit.ini")
+config.read("./examples/config.ini")
 
 sdk = SDK(config)
 
