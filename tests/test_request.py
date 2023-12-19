@@ -83,7 +83,7 @@ def test_get_order_results(sdk):
 
 
 def test_get_order_result_by_date(sdk):
-    result = sdk.get_order_result_by_date("2023-01-01", "2023-06-01")
+    result = sdk.get_order_results_by_date("2023-01-01", "2023-06-01")
     # Assertions for the first order result
     assert result[0]["ack_date"] == "20220314"
     assert result[0]["ord_date"] == "20220311"

@@ -32,7 +32,7 @@ pp.pprint(sdk.get_transactions_by_date("2023-01-01", "2023-02-24"))
 
 # print(sdk.get_machine_time())
 # orderResult = sdk.get_order_results()
-# orderResultHistory = sdk.get_order_result_by_date("2023-01-01", "2023-05-30")
+# orderResultHistory = sdk.get_order_results_by_date("2023-01-01", "2023-05-30")
 # sdk.modify_volume(orderResult[0], celqty_share=2000)
 # sdk.modify_price(orderResult[0], 10.5)
 # print(orderResult[1])
