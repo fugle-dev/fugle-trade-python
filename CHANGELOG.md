@@ -1,5 +1,8 @@
 # Changelog
+## [1.1.1](https://github.com/fugle-dev/fugle-trade-python/compare/1.1.0...1.1.1) -
 
+### Fixed
+  - 修改 function name get_order_result_by_date => get_order_results_by_date
 ## [1.1.0](https://github.com/fugle-dev/fugle-trade-python/compare/1.0.0...1.1.0) -
 
 ### Added
