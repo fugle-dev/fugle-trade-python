@@ -1,4 +1,9 @@
 # Changelog
+## [1.1.2](https://github.com/fugle-dev/fugle-trade-python/compare/1.1.0...1.1.1) -
+
+### Fixed
+  - 修正 recover_order_result 沒有正確將整股的qty轉換成int的問題
+# Changelog
 ## [1.1.1](https://github.com/fugle-dev/fugle-trade-python/compare/1.1.0...1.1.1) -
 
 ### Fixed
