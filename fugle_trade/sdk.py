@@ -217,5 +217,7 @@ class SDK:
         for key, value in order_result.items():
             if key.endswith("qty"):
                 if apcode in (APCode.Odd, APCode.Emg, APCode.IntradayOdd):
-                    new_dict[key] = int(float(value) * unit)
+                    new_dict[key] = int(value * unit)
+                else:
+                    new_dict[key] = int(value)
         return {**order_result, **new_dict}
