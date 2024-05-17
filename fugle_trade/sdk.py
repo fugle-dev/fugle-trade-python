@@ -2,6 +2,7 @@
 Expose as a single library for user to use
 
 """
+
 from fugle_trade_core.fugle_trade_core import CoreSDK
 from fugle_trade.constant import APCode, PriceFlag
 from fugle_trade.order import OrderObject
@@ -75,7 +76,7 @@ class SDK:
 
     def place_order(self, order_object: OrderObject):
         """place order"""
-        return loads(self.__core.order(order_object))["data"]
+        return loads(self.__core.order(order_object, order_object.memo))["data"]
 
     def delete_order(self, order_result):
         """delete_order"""

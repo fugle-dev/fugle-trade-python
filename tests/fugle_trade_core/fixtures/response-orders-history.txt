@@ -21,7 +21,8 @@
                 "cel_qty_share": 0,
                 "celable": 1,
                 "avg_price": 0,
-                "bs_flag": "R"
+                "bs_flag": "R",
+                "memo": ""
             },
             {
                 "ack_date": "20220314",
@@ -43,7 +44,8 @@
                 "cel_qty_share": 0,
                 "celable": "2",
                 "avg_price": 0,
-                "bs_flag": "R"
+                "bs_flag": "R",
+                "memo": ""
             }
         ]
     }
