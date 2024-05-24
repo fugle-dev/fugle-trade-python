@@ -142,7 +142,7 @@ class SDK:
 
     def get_order_results_by_date(self, start, end):
         """get order result data by date 用日期當作篩選條件委託明細"""
-        order_res_history = self.__core.get_order_result_history("0", start, end)
+        order_res_history = self.__core.get_order_result_history(start, end, "0")
         return loads(order_res_history)["data"]["order_result_history"]
 
     def get_transactions(self, query_range):
