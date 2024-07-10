@@ -3,6 +3,7 @@ Expose as a single library for user to use
 
 """
 
+from typing import Any, Dict, List, Union
 from fugle_trade_core.fugle_trade_core import CoreSDK
 from fugle_trade.constant import APCode, PriceFlag
 from fugle_trade.order import OrderObject
@@ -76,7 +77,7 @@ class SDK:
 
     def place_order(self, order_object: OrderObject):
         """place order"""
-        return loads(self.__core.order(order_object, order_object.memo))["data"]
+        return loads(self.__core.order(order_object, order_object.user_def))["data"]
 
     def delete_order(self, order_result):
         """delete_order"""
@@ -138,27 +139,36 @@ class SDK:
     def get_order_results(self):
         """get order result data 取得當日委託明細"""
         order_res = self.__core.get_order_results()
-        return loads(order_res)["data"]["order_results"]
+        order_results = loads(order_res)["data"]["order_results"]
+        return self.replace_key_in_dict(order_results, "memo", "user_def")
 
     def get_order_results_by_date(self, start, end):
         """get order result data by date 用日期當作篩選條件委託明細"""
         order_res_history = self.__core.get_order_result_history(start, end, "0")
-        return loads(order_res_history)["data"]["order_result_history"]
+        return self.replace_key_in_dict(
+            loads(order_res_history)["data"]["order_result_history"], "memo", "user_def"
+        )
 
     def get_transactions(self, query_range):
         """get transactions data 成交明細"""
         transactions_res = self.__core.get_transactions(query_range)
-        return loads(transactions_res)["data"]["mat_sums"]
+        return self.replace_key_in_dict(
+            loads(transactions_res)["data"]["mat_sums"], "memo", "user_def"
+        )
 
     def get_transactions_by_date(self, start, end):
         """用日期當作篩選條件 get transactions data by date 成交明細"""
         transactions_res = self.__core.get_transactions_by_date(start, end)
-        return loads(transactions_res)["data"]["mat_sums"]
+        return self.replace_key_in_dict(
+            loads(transactions_res)["data"]["mat_sums"], "memo", "user_def"
+        )
 
     def get_inventories(self):
         """get inventories data 庫存資訊"""
         inventories_res = self.__core.get_inventories()
-        return loads(inventories_res)["data"]["stk_sums"]
+        return self.replace_key_in_dict(
+            loads(inventories_res)["data"]["stk_sums"], "memo", "user_def"
+        )
 
     def get_balance(self):
         """get balance data 餘額資訊"""
@@ -196,6 +206,7 @@ class SDK:
         return loads(key_info_res)["data"]
 
     def on(self, param):
+
         def inner(func):
             """
             do operations with func, register func into __wsHandler
@@ -222,3 +233,32 @@ class SDK:
                 else:
                     new_dict[key] = int(value)
         return {**order_result, **new_dict}
+
+    def replace_key_in_dict(
+        self, data: Union[Dict[str, Any], List[Any]], old_key: str, new_key: str
+    ) -> Union[Dict[str, Any], List[Any]]:
+        """
+        Recursively replace keys in a dictionary or list of dictionaries according to a key mapping.
+
+        Parameters:
+        data (Union[Dict[str, Any], List[Any]]): The dictionary or list to update.
+        old_key (str): The key to replace.
+        new_key (str): The new key name.
+
+        Returns:
+        Union[Dict[str, Any], List[Any]]: The updated dictionary or list with keys replaced.
+        """
+        if isinstance(data, list):
+            return [self.replace_key_in_dict(item, old_key, new_key) for item in data]
+        elif isinstance(data, dict):
+            new_dict = {}
+            for k, v in data.items():
+                new_key_name = new_key if k == old_key else k
+                new_dict[new_key_name] = (
+                    self.replace_key_in_dict(v, old_key, new_key)
+                    if isinstance(v, (dict, list))
+                    else v
+                )
+            return new_dict
+        else:
+            return data

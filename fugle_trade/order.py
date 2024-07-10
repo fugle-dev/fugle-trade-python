@@ -15,7 +15,7 @@ class OrderObject:
     price: float
     stock_no: str
     quantity: int
-    memo: str
+    user_def: str
 
     def __init__(
         self,
@@ -27,7 +27,7 @@ class OrderObject:
         bs_flag: BSFlag = BSFlag.ROD,
         price_flag: PriceFlag = PriceFlag.Limit,
         trade: Trade = Trade.Cash,
-        memo: str = "",
+        user_def: str = "",
     ):
 
         if type(buy_sell) is not Action:
@@ -69,8 +69,8 @@ class OrderObject:
         if type(trade) is not Trade:
             raise TypeError("Please use fugleTrade.constant Trade")
 
-        if len(memo) > 50:
-            memo = memo[:50]
+        if len(user_def) > 50:
+            user_def = user_def[:50]
 
         self.ap_code = ap_code
         self.price_flag = price_flag
@@ -80,7 +80,7 @@ class OrderObject:
         self.price = price
         self.stock_no = stock_no
         self.quantity = quantity
-        self.memo = memo
+        self.user_def = user_def
 
     def __str__(self):
         return (
