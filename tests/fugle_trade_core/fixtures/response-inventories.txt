@@ -24,7 +24,8 @@
             "valueNow": "3148",
             "makeA": "725",
             "makeAPer": "30.21",
-            "priceEvn": "25.78"
+            "priceEvn": "25.78",
+            "memo": ""
           },
           {
             "tDate": "20200807",
@@ -47,7 +48,8 @@
             "valueNow": "4387",
             "makeA": "762",
             "makeAPer": "21.16",
-            "priceEvn": "27.67"
+            "priceEvn": "27.67",
+            "memo": ""
           }
         ],
         "stkNo": "0056",

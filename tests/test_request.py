@@ -55,6 +55,7 @@ def test_get_order_results(sdk):
     assert result[0]["err_msg"] == ""
     assert result[0]["avg_price"] == 0
     assert result[0]["bs_flag"] == "R"
+    assert result[0]["user_def"] == ""
 
     # Assertions for the second order result
     assert result[1]["work_date"] == "20220222"
@@ -80,6 +81,7 @@ def test_get_order_results(sdk):
     assert result[1]["err_msg"] == ""
     assert result[1]["avg_price"] == 0
     assert result[1]["bs_flag"] == "R"
+    assert result[1]["user_def"] == ""
 
 
 def test_get_order_result_by_date(sdk):
@@ -105,6 +107,7 @@ def test_get_order_result_by_date(sdk):
     assert result[0]["celable"] == 1
     assert result[0]["avg_price"] == 0
     assert result[0]["bs_flag"] == "R"
+    assert result[0]["user_def"] == ""
 
     # Assertions for the second order result
     assert result[1]["ack_date"] == "20220314"
@@ -127,6 +130,7 @@ def test_get_order_result_by_date(sdk):
     assert result[1]["celable"] == "2"
     assert result[1]["avg_price"] == 0
     assert result[1]["bs_flag"] == "R"
+    assert result[1]["user_def"] == ""
 
 
 def test_get_inventories(sdk):
@@ -134,6 +138,7 @@ def test_get_inventories(sdk):
     assert result[0]["stk_no"] == "0056"
     assert result[0]["stk_na"] == "元大高股息"
     assert result[0]["price_mkt"] == "33.49"
+    assert result[0]["stk_dats"][0]["user_def"] == ""
 
 
 def test_get_settlements(sdk):
@@ -148,6 +153,7 @@ def test_get_transactions(sdk):
     assert result[0]["stk_no"] == "2884"
     assert result[0]["buy_sell"] == "B"
     assert result[0]["qty"] == "1000"
+    assert result[0]["mat_dats"][0]["user_def"] == ""
 
 
 def test_cancel_order_intraday_odd(sdk):

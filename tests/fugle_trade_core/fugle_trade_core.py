@@ -76,7 +76,7 @@ class CoreSDK:
             raise TypeError("Must login first")
         return load_json("response-orders-history.txt")
 
-    def order(self, order):
+    def order(self, order, memo):
         if not self.isLogin:
             raise TypeError("Must login first")
         return load_json("response-place-order.txt")

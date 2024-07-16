@@ -1,16 +1,12 @@
 """
 Define Order Objects
 """
-import typing
-from fugle_trade.constant import (
-    Action,
-    APCode,
-    Trade,
-    PriceFlag,
-    BSFlag
-)
 
-class OrderObject():
+import typing
+from fugle_trade.constant import Action, APCode, Trade, PriceFlag, BSFlag
+
+
+class OrderObject:
     ap_code: APCode
     bs_flag: BSFlag
     price_flag: PriceFlag
@@ -19,18 +15,20 @@ class OrderObject():
     price: float
     stock_no: str
     quantity: int
+    user_def: str
 
     def __init__(
-            self,
-            buy_sell: Action,
-            price: float,
-            stock_no: str,
-            quantity: int,
-            ap_code: APCode = APCode.Common,
-            bs_flag: BSFlag = BSFlag.ROD,
-            price_flag: PriceFlag = PriceFlag.Limit,
-            trade: Trade = Trade.Cash,
-        ):
+        self,
+        buy_sell: Action,
+        price: float,
+        stock_no: str,
+        quantity: int,
+        ap_code: APCode = APCode.Common,
+        bs_flag: BSFlag = BSFlag.ROD,
+        price_flag: PriceFlag = PriceFlag.Limit,
+        trade: Trade = Trade.Cash,
+        user_def: str = "",
+    ):
 
         if type(buy_sell) is not Action:
             raise TypeError("Please use fugleTrade.constant Action")
@@ -50,8 +48,14 @@ class OrderObject():
             if quantity < 1 or quantity > 1000:
                 raise TypeError("quantity must within range 1 ~ 999")
         elif ap_code == APCode.Emg:
-            if quantity < 1 or quantity > 499000 or (quantity > 1000 and quantity % 1000 != 0):
-                raise TypeError("quantity must within range 1 ~ 499000, or multiply of 1000")
+            if (
+                quantity < 1
+                or quantity > 499000
+                or (quantity > 1000 and quantity % 1000 != 0)
+            ):
+                raise TypeError(
+                    "quantity must within range 1 ~ 499000, or multiply of 1000"
+                )
 
         if type(ap_code) is not APCode:
             raise TypeError("Please use fugleTrade.constant APCode")
@@ -65,6 +69,9 @@ class OrderObject():
         if type(trade) is not Trade:
             raise TypeError("Please use fugleTrade.constant Trade")
 
+        if len(user_def) > 50:
+            user_def = user_def[:50]
+
         self.ap_code = ap_code
         self.price_flag = price_flag
         self.bs_flag = bs_flag
@@ -73,6 +80,19 @@ class OrderObject():
         self.price = price
         self.stock_no = stock_no
         self.quantity = quantity
+        self.user_def = user_def
 
     def __str__(self):
-        return "ap_code: %s, price_flag: %s, bs_flag: %s, trade: %s, buy_sell: %s, price: %s, stock_no: %s, quantity: %s" % (self.ap_code, self.price_flag, self.bs_flag, self.trade, self.buy_sell, self.price, self.stock_no, self.quantity)
+        return (
+            "ap_code: %s, price_flag: %s, bs_flag: %s, trade: %s, buy_sell: %s, price: %s, stock_no: %s, quantity: %s"
+            % (
+                self.ap_code,
+                self.price_flag,
+                self.bs_flag,
+                self.trade,
+                self.buy_sell,
+                self.price,
+                self.stock_no,
+                self.quantity,
+            )
+        )
